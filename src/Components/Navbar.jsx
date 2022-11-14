@@ -1,14 +1,17 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
+import Router from './Routers/Router';
 
 export default function Navbar() {
+  
   return (
-    <div className='container'>
-        <section>
+    <div className="container">
+      <section>
         <nav className="navbar navbar-expand-lg ">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">
-             <b>React Firebase</b>
-            </a>
+            <NavLink className="navbar-brand" to="/">
+              <b>React Firebase</b>
+            </NavLink>
             <button
               className="navbar-toggler"
               type="button"
@@ -26,9 +29,9 @@ export default function Navbar() {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <NavLink className="nav-link" aria-current="page" to="/">
                     Home
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#">
@@ -80,6 +83,11 @@ export default function Navbar() {
                     Disabled
                   </a>
                 </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/contacts">
+                    Contacts
+                  </NavLink>
+                </li>
               </ul>
               <form className="d-flex">
                 <input
@@ -97,5 +105,5 @@ export default function Navbar() {
         </nav>
       </section>
     </div>
-  )
+  );
 }

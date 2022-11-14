@@ -8,13 +8,11 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js"
 import {Modal,Button} from 'react-bootstrap'
 import Model from './Components/Model';
 import FullscreenModel from './Components/FullscreenModel';
+import Router from './Components/Routers/Router';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Navbar/>
-    <Contacts/>
-   <Model/>
-   <FullscreenModel/>
+    <App/>
   </React.StrictMode>
 );
 

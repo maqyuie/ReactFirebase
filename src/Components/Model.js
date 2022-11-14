@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Contacts from './Pages/Contacts';
+// import Contacts from './Pages/Contacts';
 
 export default function Model() {
     const [show, setShow] = useState(false);
@@ -11,7 +11,7 @@ export default function Model() {
   
     return (
       <>
-        <Contacts data={handleShow}/>
+        {/* <Contacts data={handleShow}/> */}
         <Button variant="primary" onClick={handleShow}>
           Launch static backdrop modal#
         </Button>
@@ -30,6 +30,7 @@ export default function Model() {
             <Button variant="primary">Understood</Button>
           </Modal.Footer>
         </Modal>
+        {/* <Contacts data={handleShow}/> */}
       </>
     );
 }

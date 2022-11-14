@@ -3,9 +3,11 @@ import { ReactDOM } from "react";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import Model from "../Model";
 
-export default function Contacts(props) {
+export default function Contacts() {
     const[user,setUser]=useState({
         name:"",
         phone:"",
@@ -40,6 +42,7 @@ export default function Contacts(props) {
                 message
             })
         })
+        
         if(res){
             setUser({
                 name:"",
@@ -55,13 +58,20 @@ export default function Contacts(props) {
         }
     }
     else{
-       // handleShow();
+        handleShow();
         toast.error("All Data are mandatory",{
-            position:"top-center"
+            position:"top-right"
         })
     }
 
     }
+
+    //POPUP MODEL
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+   
+  
   return (
     <div className="container">
         <section className="pt-5">
@@ -111,7 +121,28 @@ export default function Contacts(props) {
         </div>
       </section>
       <ToastContainer />
-      <button onClick={props.data}>Call Function</button>
+
+{/* 
+         <Button variant="primary" onClick={handleShow}>
+          Launch static backdrop modal#
+        </Button> */}
+        <Modal show={show} onHide={handleClose} backdrop="static"  keyboard={false}>
+          <Modal.Header closeButton>
+            <Modal.Title>Validation Error</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            All fields are required ! Please fill all the mandatory fields.
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="danger" onClick={handleClose}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+        
+        
+      {/* <button onClick={props.data}>Call Function</button> */}
+      {/* <Model data={props.handleShow}/> */}
+      {/* <button onClick={props.data}>Click</button> */}
+      
     </div>
   );
 }
